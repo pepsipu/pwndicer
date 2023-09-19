@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
-    pwn:
-        container_name: pwn
-        image: pepsipu/pwndicer
-        security_opt:
-            - seccomp:unconfined
-        cap_add:
-            - SYS_PTRACE
-        ports:
-            - "414141:414141"
+  pwn:
+    container_name: pwn
+    image: pepsipu/pwn
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "414141:414141"

@@ -2,25 +2,22 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-    
+    branches: [master]
+  # this is a security vulnerability, pwndocker
+  # pull_request:
+  #   branches: [master]
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      env:
-        image_name: skysider/pwndocker
-        tag: latest
-        pwntools_version: 4.9.0
-      run: |
-        docker build . --file Dockerfile --tag $image_name:$tag --build-arg PWNTOOLS_VERSION=$pwntools_version
-        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWD }}
-        docker push $image_name:$tag
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        env:
+          image_name: pepsipu/pwn
+          tag: latest
+        run: |
+          docker build . --file Dockerfile --tag $image_name:$tag
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWD }}
+          docker push $image_name:$tag
