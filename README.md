@@ -1,13 +1,15 @@
 # pwndicer
+
 included tools:
+
 - gef
 - one_gadget
 - radare2
 - pwntools
 - stuff
 
-```sh
-docker-compose up -d
-docker exec -it pwn /bin/bash
-```
+you can quickly start a pwn container with:
 
+```sh
+docker compose run pwn
+```

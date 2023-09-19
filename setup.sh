@@ -37,8 +37,7 @@ dpkg --add-architecture i386 && \
     bison \
     rpm2cpio cpio \
     zstd \
-    tzdata --fix-missing && \
-    rm -rf /var/lib/apt/list/*
+    tzdata --fix-missing
 
 python3 -m pip install -U pip && \
     python3 -m pip install --no-cache-dir \

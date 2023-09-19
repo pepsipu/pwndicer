@@ -7,3 +7,5 @@ services:
       - seccomp:unconfined
     cap_add:
       - SYS_PTRACE
+    volumes:
+      - .:/pwn
