@@ -8,6 +8,10 @@ add the `pwnenv` command to your .bashrc for quick pwn environment:
 pwnenv() { docker run -it --rm --security-opt seccomp=unconfined --cap-add SYS_PTRACE -v .:/pwn pepsipu/pwn; }
 ```
 
+you're done!
+
+### other methods
+
 you can also add this to an existing docker file (or use the command seperately to setup pwn tooling):
 
 ```dockerfile
