@@ -36,8 +36,7 @@ DEBIAN_FRONTEND=noninteractive dpkg --add-architecture i386 && \
     python3-distutils \
     bison \
     rpm2cpio cpio \
-    zstd \
-    tzdata --fix-missing
+    zstd --fix-missing
 
 python3 -m pip install -U pip && \
     python3 -m pip install --no-cache-dir \
