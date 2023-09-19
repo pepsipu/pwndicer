@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dpkg --add-architecture i386 && \
     apt-get -y update && \
     apt install -y \
