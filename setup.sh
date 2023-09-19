@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dpkg --add-architecture i386 && \
+DEBIAN_FRONTEND=noninteractive dpkg --add-architecture i386 && \
     apt-get -y update && \
     apt install -y \
     libc6:i386 \
