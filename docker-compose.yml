@@ -7,5 +7,3 @@ services:
       - seccomp:unconfined
     cap_add:
       - SYS_PTRACE
-    ports:
-      - "414141:414141"
