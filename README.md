@@ -16,7 +16,7 @@ you can also add this to an existing docker file (or use the command seperately 
 
 ```dockerfile
 # note that you need curl! RUN apt update && apt install curl
-RUN bash -c "$(curl -fsSL https://pwn.pepsi.pw/)"
+RUN bash -c "$(curl -fsSL https://sh.pepsi.pw/)"
 ```
 
 if you prefer docker compose, you can start a pwn container with:
