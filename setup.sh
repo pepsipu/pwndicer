@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DEBIAN_FRONTEND=noninteractive dpkg --add-architecture i386 && \
-    apt-get -y update && \
+    apt-get -y update ; \
     apt install -y \
     libc6:i386 \
     libc6-dbg:i386 \
