@@ -1,15 +1,19 @@
 # pwndicer
 
-## install
+## install & usage
 
 add the `pwnenv` command to your .bashrc for quick pwn environment:
 
 ```sh
-pwnenv() { docker run -it --rm --security-opt seccomp=unconfined --cap-add SYS_PTRACE -v .:/pwn pepsipu/pwn; }
+pwnenv() { docker run -it --rm --security-opt seccomp=unconfined --cap-add SYS_PTRACE -v .:/pwn pepsipu/pwn:${1:-latest}; }
 ```
 
 you're done!
 
+```sh
+pwnenv # launches latest ubuntu docker
+pwnenv 18.04 # launches specific ubuntu version
+```
 ### other methods
 
 you can also add this to an existing docker file (or use the command seperately to setup pwn tooling):
