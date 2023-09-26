@@ -17,6 +17,6 @@ jobs:
         env:
           image_name: pepsipu/pwn
         run: |
-          sed 's/latest/{{ matrix.tag }}/' Dockerfile | docker build . --tag $image_name:{{ matrix.tag }} -
+          sed 's/latest/{{ matrix.tag }}/' Dockerfile | docker build --tag $image_name:{{ matrix.tag }} -
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWD }}
           docker push $image_name:{{ matrix.tag }}
