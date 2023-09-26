@@ -3,18 +3,18 @@ name: Docker Image CI
 on:
   push:
     branches: [master]
-  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tag: [18.04, 20.04, 22.04, 23.04, latest]
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         env:
           image_name: pepsipu/pwn
-          tag: latest
         run: |
-          docker build . --file Dockerfile --tag $image_name:$tag
+          sed 's/latest/{{ matrix.tag }}/' Dockerfile | docker build . --tag $image_name:{{ matrix.tag }} -
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWD }}
-          docker push $image_name:$tag
+          docker push $image_name:{{ matrix.tag }}

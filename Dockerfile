@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 LABEL maintainer="pepsipu <pepsi@pepsi.pw>"
 
 ENV TZ America/Los_Angeles
