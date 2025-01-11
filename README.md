@@ -16,6 +16,22 @@ pwnenv 18.04 # launches specific ubuntu version
 ```
 ### other methods
 
+if you're using a remote docker instance (like for those doing pwn on an apple silicon mac) you can also add this helper function to copy over your current directory contents to a remote volume
+```sh
+copy-to-docker-volume() {
+  docker volume create $2
+  docker create -v $2:/data --name helper busybox true
+  docker cp $1 helper:/data
+  docker rm helper
+}
+
+pwnenv() {
+  docker volume rm pwn-volume
+  copy-to-docker-volume . pwn-volume
+  docker run -it --rm --security-opt seccomp=unconfined --cap-add SYS_PTRACE -v pwn-volume:/pwn pepsipu/pwn:${1:-latest}
+}
+```
+
 you can also add this to an existing docker file (or use the command seperately to setup pwn tooling):
 
 ```dockerfile
